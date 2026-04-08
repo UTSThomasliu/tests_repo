@@ -20,7 +20,7 @@ module.exports = async function (driver, parameters = {}) {
     
     // Check if redirect to Okta occurred
     if (currentUrl.includes("okta.com")) {
-      console.log("✅ Browser is on Okta (user is logged in into OKTA Test Environment);
+      console.log("✅ Browser is on Okta (user is logged in into OKTA Test Environment)");
       url = "https://notetaker-admin.dev.uts.edu.au/";
     } else if (currentUrl.includes("login-preprod.uts.edu.au")){
       url = "https://notetaker-admin.uat.uts.edu.au/";

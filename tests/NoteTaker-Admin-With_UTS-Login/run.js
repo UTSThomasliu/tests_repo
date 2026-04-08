@@ -14,18 +14,18 @@ module.exports = async function (driver, parameters = {}) {
   try {
     // Step 1: Go to the UTS bookmark URL
     const url = "https://notetaker-admin.uts.edu.au/";
+    const currentUrl = await driver.getCurrentUrl();
     
-    const cookies = await driver.manage().getCookies();
-
-    const hasOktaSession = cookies.some(
-      (cookie) => cookie.name === "sid"
-      );
-
-    if (hasOktaSession) {
-       console.log("✅ Okta session exists (user is logged in into OKTA Test Environment)");
-       url = "https://notetaker-admin.dev.uts.edu.au/";
-      }
-
+    console.log("Current URL:", currentUrl);
+    
+    // Check if redirect to Okta occurred
+    if (currentUrl.includes("okta.com")) {
+      console.log("✅ Browser is on Okta (user is logged in into OKTA Test Environment);
+      url = "https://notetaker-admin.dev.uts.edu.au/";
+    } else if (currentUrl.includes("login-preprod.uts.edu.au")){
+      url = "https://notetaker-admin.uat.uts.edu.au/";
+      console.log("✅ Browser is on Okta (user is logged in into OKTA Preprod Environment)");
+    }
 
     log(`🌏 Navigating to ${url}`);
     await driver.get(url);

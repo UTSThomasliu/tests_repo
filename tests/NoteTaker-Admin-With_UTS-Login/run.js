@@ -31,7 +31,16 @@ module.exports = async function (driver, parameters = {}) {
     await driver.get(url);
 
     // Step 2: Wait for possible page or SSO loads
-    await driver.sleep(2000);
+    
+    try {
+      await driver.wait(
+        until.urlContains("notetaker-admin"),
+        10000
+      );
+      console.log("✅ User is logged in (notetaker-admin detected)");
+    } catch {
+      throw new Error("❌ FAIL: Can't see user login");
+    }
 
     // Step 3: Wait for the <div class="navbar-header">
     log("🔎 Waiting for navbar div (class='navbar-header')...");

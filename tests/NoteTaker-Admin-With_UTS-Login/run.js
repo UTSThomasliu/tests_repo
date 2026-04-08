@@ -13,7 +13,7 @@ module.exports = async function (driver, parameters = {}) {
 
   try {
     // Step 1: Go to the UTS bookmark URL
-    const url = "https://notetaker-admin.uts.edu.au/";
+    let url = "https://notetaker-admin.uts.edu.au/";
     const currentUrl = await driver.getCurrentUrl();
     
     console.log("Current URL:", currentUrl);

@@ -21,7 +21,7 @@ module.exports = async function (driver, parameters = {}) {
       (cookie) => cookie.name === "sid"
       );
 
-    if (hasOktaSession){
+    if (hasOktaSession) {
        console.log("✅ Okta session exists (user is logged in into OKTA Test Environment)");
        url = "https://notetaker-admin.dev.uts.edu.au/";
       }

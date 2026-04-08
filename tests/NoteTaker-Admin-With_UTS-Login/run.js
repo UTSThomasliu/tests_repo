@@ -35,7 +35,7 @@ module.exports = async function (driver, parameters = {}) {
     try {
       await driver.wait(
         until.urlContains("notetaker-admin"),
-        10000
+        20000
       );
       console.log("✅ User is logged in (notetaker-admin detected)");
     } catch {

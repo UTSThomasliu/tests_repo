@@ -1,0 +1,10 @@
+{
+  "title": "Example to Login APay",
+  "needed-parameters": [
+    {
+      "name": "whatToSearch",
+      "label": "EPEA",
+      "default": "EPEA"
+    }
+  ]
+}

@@ -41,7 +41,7 @@ module.exports = async function (driver, parameters = {}) {
     } catch {
       throw new Error("❌ FAIL: Can't see user login");
     }
-    await driver.sleep(2000);
+    await driver.sleep(12000);
     // Step 3: Wait for the <div class="navbar-header">
     log("🔎 Waiting for navbar div (class='navbar-header')...");
     let navbarDiv;
